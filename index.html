@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Testing Bootstrap</title>
+
+		<script src="js/angular.min.js"></script>
+
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	</head>
+	<body>
+		<header></header>
+		<div class="container">
+				<div class="col-xs-8 column left-column">
+					<div class="row module"><p>Default text here</p></div>
+
+					<div class="row module"><p>Lorem ipsum</p></div>
+
+					<div class="row module">
+						<form role="form">
+						    <div class="form-group">
+						    	<!--<label for="email">Email:</label>-->
+						    	<!--<input type="textbox" class="form-control" id="email" placeholder="Enter email">-->
+						    	<textarea>
+									At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
+								</textarea>
+						    </div>
+						</form>
+					</div>
+				</div>
+
+				<div class="col-xs-4 column right-column">
+
+					<div class="row module"><p>Something Something</p></div>
+
+					<div class="row module"><p>Darkside</p></div>
+
+					<div class="row module"><p>Hmm</p></div>
+
+				</div>
+		</div>
+
+		<script>
+			var app = angular.module('test', []);
+			app.controller('testControl', function($scope) {
+			    $scope.firstName= "Bob";
+			    $scope.lastName= "Ridley";
+			});
+		</script>
+
+		<footer></footer>
+		
+		<script src="js/jquery-2.1.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>

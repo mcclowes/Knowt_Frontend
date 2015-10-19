@@ -1,0 +1,32 @@
+body {
+  background-color: black !important;
+}
+.column {
+  background-color: gray;
+  padding: 5px;
+}
+form {
+  border-style: none;
+}
+.module {
+  margin: 10px;
+}
+.module p,
+.module form {
+  background-color: white;
+  border-style: none;
+  border-left: thick double #fff;
+}
+.module p:hover,
+.module form:hover,
+.module p:active,
+.module form:active {
+  border-left: thick double #ff0000;
+  background-color: yellow;
+}
+.module ::-moz-selection,
+.module ::selection {
+  /* Code for Firefox */
+  color: red;
+  background: yellow;
+}
