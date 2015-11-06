@@ -67,6 +67,28 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
+	"\/img\/arabic.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 531279,
+		"inputAbbreviatedPath": "\/img\/arabic.png",
+		"outputAbbreviatedPath": "\/img\/arabic.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/plus-icon.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 9240,
+		"inputAbbreviatedPath": "\/img\/plus-icon.png",
+		"outputAbbreviatedPath": "\/img\/plus-icon.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/index.html": {
 		"fileType": 8192,
 		"ignore": 0,
