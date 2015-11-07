@@ -21,15 +21,32 @@ if (homepage.test(window.location.pathname)) {
 	})();
 	//Animate squares
 	(function(){
-		function createSquares() {
+		function createSquare() {
 			var container = $('.container:first');
 			var plusBox = $('.plus-box:first');
 			var newBox = $('<div class="plus-box">');
-			$(newBox).css({top: $(plusBox[0]).offset().top + 20 , left: $(plusBox[0]).offset().left + 20, opacity: 0.5, position: 'absolute'});
+
+			var spawnSquareIndex = Math.floor(Math.random() * $('.plus-box', container[0]).length);
+			var spawnSquare = $('.plus-box', container[0])[spawnSquareIndex];
+
+			var directionVal = Math.random();
+			$(newBox).css({top: $(spawnSquare).offset().top, left: $(spawnSquare).offset().left, opacity: 1, position: 'absolute'});
+			if(directionVal < 0.25){
+				$(newBox).animate({top: "+=00", left: "+=100", opacity: 0.5 }, 500, function(){});
+			}
+			else if(directionVal < 0.5){
+				$(newBox).animate({top: "+=100", left: "+=00", opacity: 0.5 }, 500, function(){});
+			}
+			else if(directionVal < 0.75){
+				$(newBox).animate({top: "+=00", left: "-=100", opacity: 0.5 }, 500, function(){});
+			}
+			else{
+				$(newBox).animate({top: "-=100", left: "+=00", opacity: 0.5 }, 500, function(){});
+			}
 			container.append(newBox);
 		}
 
-		setInterval( createSquares(), 3000);
+		setInterval( createSquare , 1000);
 	})();
 }
 
@@ -97,7 +114,7 @@ if (documentPage.test(window.location.pathname)) {
 		addModuleButton.click(function(){
 			console.log('clicked ' + this);
 			$(this).replaceWith('<div class="module-grid"><div class="col-xs-3 module-button text-module">Text</div><div class="col-xs-3 module-button image-module">Image</div><div class="col-xs-3 module-button">Chart</div><div class="col-xs-3 module-button">Chart</div></div>' );
-			
+
 			//Text module
 			var textModuleButtons = $('.module-button.text-module');
 			textModuleButtons.click(function(){
@@ -117,7 +134,7 @@ if (documentPage.test(window.location.pathname)) {
 					console.log(dropImages[i]);
 					dropImages[i].addEventListener("dragover", function(e){e.preventDefault();}, true);
 					dropImages[i].addEventListener("drop", function(e){
-						e.preventDefault(); 
+						e.preventDefault();
 						if (e.dataTransfer.files && e.dataTransfer.files[0]) {
 							console.log('got here');
 				            var imageReader = new FileReader();
