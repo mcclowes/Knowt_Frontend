@@ -19,7 +19,7 @@ if (homepage.test(window.location.pathname)) {
 
 		$(document).ready(changeBackground());
 	})();
-
+/*
 	//Animate squares
 	(function(){
 		function createSquares() {
@@ -31,7 +31,7 @@ if (homepage.test(window.location.pathname)) {
 		}
 
 		setInterval( createSquares(), 3000);
-	})();
+	})();*/
 }
 
 if (documentPage.test(window.location.pathname)) {
