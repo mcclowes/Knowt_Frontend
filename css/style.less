@@ -6,6 +6,10 @@ img {
 	width:100%;
 }
 
+.right-column {
+	padding-left: 10px;
+}
+
 .logo {
 	padding-top: 20%;
 	font-family: 'Archive';
@@ -39,30 +43,28 @@ img {
 	width: 80px;
 }
 
-
-.plus-box:after {
-background-color: #0b1b2d;
-width: 40px;
-height: 10px;
-border-radius: 1px;
--webkit-border-radius: 1px;
--moz-border-radius: 1px;
-position: absolute;
-top: 310px;
-left: 319px;
-  content:"";
+.plus-hor,
+.plus-ver  {
+	background-color: #0b1b2d;
+	border-radius: 1px;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	position: relative;
+  	content:"";
 }
-.plus-box:before {
-background-color: #0b1b2d;
-width: 10px;
-height: 40px;
-border-radius: 1px;
--webkit-border-radius: 1px;
--moz-border-radius: 1px;
-position: absolute;
-top: 295px;
-left: 334px;
-  content:"";
+
+.plus-hor {
+	width: 40px;
+	height: 10px;
+	top: 35px;
+	left: 20px;
+}
+
+.plus-ver {
+	width: 10px;
+	height: 40px;
+	top: 10px;
+	left: 35px;
 }
 
 .column {

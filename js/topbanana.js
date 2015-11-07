@@ -1,70 +1,91 @@
 // ------------------------------------------------------------------------------ //
-// © Akkroo MMXV --------------------------------------------------------------- //
-// ------------------------------------------------------------------------------ //
-// -- Just checking out our code were you? -------------------------------------- //
-// ------------------------------------------------------------------------------ //
-// -- We know, killer skillz pay them billz. If you want to work in a startup, -- //
-// -- know how to wrangle code like a pro, and want an exciting new challenge, -- //
-// -- drop me an email - andy@akkroo.com ---------------------------------------- //
+// © TrevsLads MMXV --------------------------------------------------------------- //
 // ------------------------------------------------------------------------------ //
 // ------------------------------------------------------------------------------ //
 
-//if ($('html.section-contact.page-index').length === 1) {
+var homepage = new RegExp("\/index\.html");
+var documentPage = new RegExp("\/new\_document\.html");
 
-	function changeBackground() {
-		bgColorArray = ['#0b1b2d','#0d2e11','gray']
-		document.body.style.backgroundColor = bgColorArray[Math.floor((Math.random() * bgColorArray.length))];
+if (homepage.test(window.location.pathname)) {
+	//Randomise background colour
+	(function(){
+		function changeBackground() {
+			var bgColorArray = ['#0b1b2d','#0d2e11','gray'];
+			var color = bgColorArray[Math.floor((Math.random() * bgColorArray.length))];
+			document.body.style.backgroundColor = color;
+			$('.plus-ver:first')[0].style.backgroundColor = color;
+			$('.plus-hor:first')[0].style.backgroundColor = color;
+		}
 
-		//Alter plus thing here too
-	}
+		$(document).ready(changeBackground());
+	})();
 
-	$(document).ready(changeBackground());
-//}
+	//Animate squares
+	(function(){
+		function createSquares() {
+			var container = $('.container:first');
+			var plusBox = $('.plus-box:first');
+			var newBox = $('<div class="plus-box">');
+			$(newBox).css({top: $(plusBox)[0].style.top + 100 , left: $(plusBox)[0].style.left, opacity: 0.5, position: 'absolute'});
+			container.append(newBox);
+		}
 
-	var textBoxes = $('.testbox');
+		setInterval( createSquares(), 3000);
+	})();
+}
 
-	console.log(textBoxes)
+if (documentPage.test(window.location.pathname)) {
+	//Add text editing functionality
+	(function(){
+		var textBoxes = $('.testbox');
 
-	var observe;
+		for (var i = 0; i < textBoxes.length; i++) {
 
-	if (window.attachEvent) {
-	    observe = function (element, event, handler) {
-	        element.attachEvent('on'+event, handler);
-	    };
-	} else {
-	    observe = function (element, event, handler) {
-	        element.addEventListener(event, handler, false);
-	    };
-	}
+			var observe;
 
-	console.log(textBoxes.length);
+			if (window.attachEvent) {
+			    observe = function (element, event, handler) {
+			        element.attachEvent('on'+event, handler);
+			    };
+			} else {
+			    observe = function (element, event, handler) {
+			        element.addEventListener(event, handler, false);
+			    };
+			}
 
-	for (var i = 0; i < textBoxes.length; i++) {
-		console.log(i);
-	    var text = textBoxes[i];
+		    var text = textBoxes[i];
 
-	    function resize () {
-	        text.style.height = 'auto';
-	        text.style.height = text.scrollHeight+'px';
-	    }
-	    /* 0-timeout to get the already changed text */
-	    function delayedResize () {
-	        window.setTimeout(resize, 0);
-	    }
-	    observe(text, 'change',  resize);
-	    observe(text, 'cut',     delayedResize);
-	    observe(text, 'paste',   delayedResize);
-	    observe(text, 'drop',    delayedResize);
-	    observe(text, 'keydown', delayedResize);
+		    function resize () {
+		        text.style.height = 'auto';
+		        text.style.height = text.scrollHeight+'px';
+		    }
+		    /* 0-timeout to get the already changed text */
+		    function delayedResize () {
+		        window.setTimeout(resize, 0);
+		    }
+		    observe(text, 'change', resize);
+		    observe(text, 'cut', delayedResize);
+		    observe(text, 'paste', delayedResize);
+		    observe(text, 'drop', delayedResize);
+		    observe(text, 'keydown', delayedResize);
 
-	    text.focus();
-	    text.select();
-	    resize();
-	}
+		    text.focus();
+		    text.select();
+		    resize();
+		}
+	})();
 
+	(function(){
+		var moduleButtons = $('.add-module');
+		moduleButtons.click(function(){
+			console.log('clicked ' + this);
+			$(this).html('<div class="col-xs-4 module">Image</div>' );
+			$(this).append('<div class="col-xs-4 module">Text</div>' );
+			$(this).append('<div class="col-xs-4 module">Chart</div>' );
+		});
+	})();
 
-
-
+}
 
 /*
 	// --- Some Specific Page Tracking --- //
