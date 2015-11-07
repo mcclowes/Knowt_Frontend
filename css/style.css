@@ -74,6 +74,9 @@ header a:hover {
   transition: 0.5s ease;
   text-decoration: none;
 }
+.container {
+  padding-top: 20px;
+}
 .plus-box {
   display: inline-block;
   border-radius: 10px;
@@ -104,6 +107,12 @@ header a:hover {
 }
 .column {
   padding: 5px 5px 0 5px;
+}
+.left-column {
+  margin-left: -5px;
+}
+.right-column {
+  margin-left: 5px;
 }
 .add-module {
   opacity: 0;
@@ -180,10 +189,13 @@ input:focus {
   font-weight: medium;
 }
 .module-button {
-  width: 40px;
-  height: 40px;
-  background: #dedede;
+  height: 100px;
+  background-color: #dedede;
   padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  color: white;
+  font-weight: bolder;
 }
 .image.empty {
   height: 40px;
