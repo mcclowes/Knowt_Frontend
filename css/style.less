@@ -1,3 +1,11 @@
+/*@media print {
+
+	header {
+		display: none;
+	}
+
+}*/
+
 body {
 	background-color: #0b1b2d;
 }
@@ -39,7 +47,16 @@ img {
 		font-size: 8.6em;
 		letter-spacing: 1.5px;
 		font-weight: lighter;
+		padding-left: 7px;
 	}
+}
+
+.plus-box {
+	display: inline-block;
+	border-radius: 10px;
+	background-color: #dedede;
+	height: 80px;
+	width: 80px;
 }
 
 header {
@@ -98,13 +115,7 @@ header {
 
 .container {
 	padding-top: 20px;
-}
-.plus-box {
-	display: inline-block;
-	border-radius: 10px;
-	background-color: #dedede;
-	height: 80px;
-	width: 80px;
+	//background-color: #F7F7F7;
 }
 
 .plus-hor,
@@ -135,12 +146,8 @@ header {
 	padding: 5px 5px 0 5px;
 }
 
-.left-column {
-	margin-left: -5px;
-}
-
-.right-column {
-	margin-left: 5px;
+.document-header {
+	margin-bottom: 4px;
 }
 
 .add-module {
@@ -155,10 +162,6 @@ header {
 		margin-left: auto;
     	margin-right: auto;
 	}
-}
-
-.document-header {
-	margin-bottom: 4px;
 }
 
 .add-module-last {
@@ -177,6 +180,7 @@ header {
 .module {
 	margin: 4px;
 	list-style: none;
+	border-radius: 10px;
 
 	p,
 	form,
@@ -236,6 +240,11 @@ input:focus {
 	font-weight: medium;
 }
 
+.header-module {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
 .module-button {
 	height: 100px;
 	background-color: #dedede;
@@ -255,4 +264,8 @@ input:focus {
 	border-color: #dedede;
 	color: #dedede;
 	text-align: center;
+}
+
+ul {
+	padding-left: 0;
 }

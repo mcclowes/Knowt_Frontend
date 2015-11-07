@@ -26,6 +26,7 @@ if (homepage.test(window.location.pathname)) {
 		}
 
 		$(document).ready(changeBackground());
+		setInterval( changeBackground , 5000);
 	})();
 
 	//Animate squares
@@ -44,16 +45,15 @@ if (homepage.test(window.location.pathname)) {
 			/*if(directionVal < 0.25 && !(document.elementFromPoint($(spawnSquare).offset().top, $(spawnSquare).offset().left))){
 				$(newBox).animate({top: "+=00", left: "+=100", opacity: 0.5 }, 500, function(){});
 			} */
-			console.log('Top: ' + plusBox.offset().top + ', Left: '+ plusBox.offset().left);
+			/*if (plusBox.offset().top == $(newBox).offset().top + 100){
+				console.log('Top: ' + plusBox.offset().top + ', Left: '+ plusBox.offset().left);
+			}*/
 
-			if((directionVal < 0.34) && ((plusBox.offset().top != $(newBox).offset().top + 100) && (plusBox.offset().left != $(newBox).offset().left))){ //Up
-				console.log('Did: Top: ' + (plusBox.offset().top+100) + ', Left: '+ plusBox.offset().left);
+			if((directionVal < 0.34) && (plusBox.offset().top != $(newBox).offset().top + 100 ) && (plusBox.offset().left != $(newBox).offset().left)){ //Up
 				$(newBox).animate({top: "+=100", left: "+=00", opacity: 0.5 }, 500, function(){});
-			} else if((directionVal < 0.66) && ((plusBox.offset().top != $(newBox).offset().top) && (plusBox.offset().left != $(newBox).offset().left - 100))){ //Left
-				console.log('Did: Top: ' + plusBox.offset().top + ', Left: '+ (plusBox.offset().left-100));
+			} else if((directionVal < 0.66) && (plusBox.offset().top != $(newBox).offset().top) && (plusBox.offset().left != $(newBox).offset().left )){ //Left
 				$(newBox).animate({top: "+=00", left: "-=100", opacity: 0.5 }, 500, function(){});
-			} else if((plusBox.offset().top != $(newBox).offset().top - 100) && (plusBox.offset().left != $(newBox).offset().left)){ //Down
-				console.log('Did: Top: ' + (plusBox.offset().top-100) + ', Left: '+ plusBox.offset().left);
+			} else if((plusBox.offset().top != $(newBox).offset().top ) && (plusBox.offset().left != $(newBox).offset().left)){ //Down
 				$(newBox).animate({top: "-=100", left: "+=00", opacity: 0.5 }, 500, function(){});
 			} else { //No free square
 				console.log('Else')
@@ -62,7 +62,7 @@ if (homepage.test(window.location.pathname)) {
 			container.append(newBox);
 		}
 
-		setInterval( createSquare , 3000);
+		setInterval( createSquare , 1500);
 	})();
 }
 
@@ -71,9 +71,7 @@ if (documentPage.test(window.location.pathname)) {
 		//Make modules sortable
 		function makeSortable() {
 			var modules = $('ul');
-			console.log(modules);
 			for (var i = 0; i < modules.length; i++) {
-				console.log($(modules[i]));
 				$(modules[i]).sortable();
 				//$(modules[i]).draggable();
 			}
@@ -81,14 +79,13 @@ if (documentPage.test(window.location.pathname)) {
 
 		makeSortable();
 
-
 		//Add text editing functionality
 		function enableTextBoxes(){
 			var textBoxes = $('.testbox');
 
 			for (var i = 0; i < textBoxes.length; i++) {
 
-				var observe;
+				/*var observe;
 
 				if (window.attachEvent) {
 				    observe = function (element, event, handler) {
@@ -104,10 +101,10 @@ if (documentPage.test(window.location.pathname)) {
 
 			    function resize () {
 			        text.style.height = 'auto';
-			        text.style.height = text.scrollHeight+'px';
+			        text.style.height = text.scrollHeight + 'px';
 			    }
 			    /* 0-timeout to get the already changed text */
-			    function delayedResize () {
+			    /*function delayedResize () {
 			        window.setTimeout(resize, 0);
 			    }
 			    observe(text, 'change', resize);
@@ -118,7 +115,8 @@ if (documentPage.test(window.location.pathname)) {
 
 			    text.focus();
 			    text.select();
-			    resize();
+			    resize();*/
+			    $(textBoxes[i]).elastic();
 			}
 		};
 
@@ -128,39 +126,49 @@ if (documentPage.test(window.location.pathname)) {
 		(function enableAddModule(){
 			var addModuleButton = $('.add-module');
 			addModuleButton.click(function(){
-				$(this).replaceWith('<div class="module-grid"><div class="col-xs-2 module-button text-module">Text</div><div class="col-xs-2 module-button image-module">Image</div></div>' );
+				$(this).replaceWith('<div class="module-grid"><div class="col-xs-2 module-button text-module-button">Text</div><div class="col-xs-2 module-button header-module-button">Header</div><div class="col-xs-2 module-button image-module-button">Image</div><div class="col-xs-2 module-button cancel-module-button">Cancel</div></div>' );
 
 				//Text module
-				var textModuleButtons = $('.module-button.text-module');
+				var textModuleButtons = $('.module-button.text-module-button');
 				textModuleButtons.click(function(){
 					console.log('Made text ' + this);
-					$(this).parent().replaceWith('<li class="row module add-module"><img src="./img/plus-icon.png"></li><li class="row module"><form role="form"><textarea class="testbox" placeholder="Start typing..."></textarea></form></div><li class="row module add-module"><img src="./img/plus-icon.png"></li>' );
+					$(this).parent().replaceWith('<li class="module add-module"><img src="./img/plus-icon.png"></li><li class="module"><form role="form"><textarea class="testbox" placeholder="Start typing..."></textarea></form></div><li class="module add-module"><img src="./img/plus-icon.png"></li>' );
+					makeSortable();
+					enableAddModule();
+				});
+
+				//Header
+				var headerModuleButtons = $('.module-button.header-module-button');
+				headerModuleButtons.click(function(){
+					console.log('Made text ' + this);
+					$(this).parent().replaceWith('<li class="module add-module"><img src="./img/plus-icon.png"></li><li class="module"><form role="form"><!--<label for="email">Header</label>--><input type="textbox" class="header-module" id="header" placeholder="Header"></form></li><li class="module add-module"><img src="./img/plus-icon.png"></li>' );
 					makeSortable();
 					enableAddModule();
 				});
 
 				//Image
-				var imageModuleButtons = $('.module-button.image-module');
+				var imageModuleButtons = $('.module-button.image-module-button');
 				imageModuleButtons.click(function(){
-					$(this).parent().replaceWith('<li class="row module add-module"><img src="./img/plus-icon.png"></li><li class="row module"><div class="module image empty">+ Drag an image to upload</div><li class="row module add-module"><img src="./img/plus-icon.png"></li>' );
-					console.log('Made image ' + this);
+					$(this).parent().replaceWith('<li class="module add-module"><img src="./img/plus-icon.png"></li><li class="module"><div class="module image empty">+ Drag an image to upload</div><li class="module add-module"><img src="./img/plus-icon.png"></li>' );
 
 					var dropImages = $('.module.image.empty');
-					console.log(dropImages);
 					for (var i = 0; i < dropImages.length; i++) {
-						console.log(dropImages[i]);
 						dropImages[i].addEventListener("dragover", function(e){e.preventDefault();}, true);
 						dropImages[i].addEventListener("drop", function(e){
 							e.preventDefault();
 							if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-								console.log('got here');
-					            var imageReader = new FileReader();
-					            imageReader.onload = function(){
-						            imageReader.readAsDataURL(e.dataTransfer.files[0]);
-						            console.log(reader);
-						            console.log(reader.result);
-						            $(this).append('<img src="' + reader.result + '">');
-						            $(this).removeClass('empty');
+								e.preventDefault(); 
+								if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+
+								    var reader = new FileReader();
+						            reader.onload =  function(e) {
+						            	var dropImages = $('.module.image.empty');
+						            	$(dropImages).html('<img src="' + reader.result + '">');
+						            	$(dropImages).removeClass('empty');
+								    }
+						            reader.readAsDataURL(e.dataTransfer.files[0]);
+
+						            
 						        }
 					        }
 						}, true);
@@ -168,7 +176,14 @@ if (documentPage.test(window.location.pathname)) {
 					makeSortable();
 					enableAddModule();
 				});
-				//Table
+
+				//Cancel
+				var cancelModuleButtons = $('.module-button.cancel-module-button');
+				cancelModuleButtons.click(function(){
+					$(this).parent().replaceWith('<li class="row module add-module"></li>' );
+					makeSortable();
+					enableAddModule();
+				});
 
 			});
 		})();
