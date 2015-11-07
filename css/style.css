@@ -136,6 +136,9 @@ header a:hover {
   opacity: 1;
   height: 30px;
 }
+.module-grid {
+  height: 120px;
+}
 .module {
   margin: 4px;
 }

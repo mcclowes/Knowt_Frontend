@@ -6,6 +6,7 @@
 var homepage = new RegExp("\/index\.html");
 var documentPage = new RegExp("\/new\_document\.html");
 
+//Home
 if (homepage.test(window.location.pathname)) {
 	(function(){
 		var container = $('.column:first');
