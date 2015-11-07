@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Knowt Interaction Test</title>
+
+		<script src="js/angular.min.js"></script>
+
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	
+		<script type="text/javascript">
+			var observe;
+
+			if (window.attachEvent) {
+			    observe = function (element, event, handler) {
+			        element.attachEvent('on'+event, handler);
+			    };
+			}
+			else {
+			    observe = function (element, event, handler) {
+			        element.addEventListener(event, handler, false);
+			    };
+			}
+
+			function init () {
+			    var text = document.getElementById('testbox');
+			    function resize () {
+			        text.style.height = 'auto';
+			        text.style.height = text.scrollHeight+'px';
+			    }
+			    /* 0-timeout to get the already changed text */
+			    function delayedResize () {
+			        window.setTimeout(resize, 0);
+			    }
+			    observe(text, 'change',  resize);
+			    observe(text, 'cut',     delayedResize);
+			    observe(text, 'paste',   delayedResize);
+			    observe(text, 'drop',    delayedResize);
+			    observe(text, 'keydown', delayedResize);
+
+			    text.focus();
+			    text.select();
+			    resize();
+			}
+		</script>
+
+		<script type="text/javascript">
+			var observe2;
+			
+			if (window.attachEvent) {
+			    observe2 = function (element, event, handler) {
+			        element.attachEvent('on'+event, handler);
+			    };
+			}
+			else {
+			    observe2 = function (element, event, handler) {
+			        element.addEventListener(event, handler, false);
+			    };
+			}
+
+			function init () {
+			    var text2 = document.getElementById('testbox2');
+			    function resize () {
+			        text2.style.height = 'auto';
+			        text2.style.height = text2.scrollHeight+'px';
+			    }
+			    /* 0-timeout to get the already changed text2 */
+			    function delayedResize () {
+			        window.setTimeout(resize, 0);
+			    }
+			    observe2(text2, 'change',  resize);
+			    observe2(text2, 'cut',     delayedResize);
+			    observe2(text2, 'paste',   delayedResize);
+			    observe2(text2, 'drop',    delayedResize);
+			    observe2(text2, 'keydown', delayedResize);
+
+			    text2.focus();
+			    text2.select();
+			    resize();
+			}
+		</script>
+
+		<script type="text/javascript">
+			var observe3;
+			
+			if (window.attachEvent) {
+			    observe3 = function (element, event, handler) {
+			        element.attachEvent('on'+event, handler);
+			    };
+			}
+			else {
+			    observe3 = function (element, event, handler) {
+			        element.addEventListener(event, handler, false);
+			    };
+			}
+
+			function init () {
+			    var text3 = document.getElementById('testbox3');
+			    function resize () {
+			        text3.style.height = 'auto';
+			        text3.style.height = text3.scrollHeight+'px';
+			    }
+			    /* 0-timeout to get the already changed text3 */
+			    function delayedResize () {
+			        window.setTimeout(resize, 0);
+			    }
+			    observe3(text3, 'change',  resize);
+			    observe3(text3, 'cut',     delayedResize);
+			    observe3(text3, 'paste',   delayedResize);
+			    observe3(text3, 'drop',    delayedResize);
+			    observe3(text3, 'keydown', delayedResize);
+
+			    text3.focus();
+			    text3.select();
+			    resize();
+			}
+		</script>
+	</head>
+	<body onload="init();">
+		<header></header>
+		<div class="container">
+				<div class="col-xs-8 column left-column">
+					<div class="row module document-header">
+						<form role="form">
+					    	<!--<label for="email">Header</label>-->
+					    	<input type="textbox" class="document-header-content" id="header" placeholder="Document Title">
+						</form>
+					</div>
+
+					<div class="row module document-description">
+						<form role="form">
+					    	<textarea placeholder="Document description"></textarea>
+						</form>
+					</div>
+
+					<div class="row module add-module">
+						<img src="./img/plus-icon.png">
+					</div>
+
+					<!--<div class="row module">
+						<form role="form">
+					    	<textarea placeholder="Start typing...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel egestas lorem, at mollis est. Proin ac mi quis purus auctor egestas. Nulla a nulla id nibh laoreet convallis non imperdiet metus. Sed eget magna nec nulla accumsan fermentum eget quis massa. Morbi finibus ante in felis imperdiet tempor. Nullam hendrerit arcu ac dui tincidunt, in gravida est laoreet. Praesent molestie nisi eu libero iaculis, eget mattis nibh cursus. Vivamus id erat ut elit sagittis ultricies. Sed dictum nec lectus ac rhoncus. Cras feugiat placerat purus, vitae pellentesque mi egestas id. Nullam vel sapien fermentum, pellentesque libero at, bibendum enim.
+					    	</textarea>
+						</form>
+					</div>-->
+
+					<div class="row module">
+						<form role="form">
+						    <textarea id='testbox' placeholder="Start typing...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel egestas lorem, at mollis est. Proin ac mi quis purus auctor egestas. Nulla a nulla id nibh laoreet convallis non imperdiet metus.</textarea>
+						</form>
+					</div>
+
+					<div class="row module add-module">
+						<img src="./img/plus-icon.png">
+					</div>
+
+					<div class="row module">
+						<form role="form">
+						    <textarea id='testbox2' placeholder="Start typing...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel egestas lorem, at mollis est. Proin ac mi quis purus auctor egestas. Nulla a nulla id nibh laoreet convallis non imperdiet metus.</textarea>
+						</form>
+					</div>
+
+					<div class="row module add-module">
+						<img src="./img/plus-icon.png">
+					</div>
+
+					<div class="row module">
+						<form role="form">
+						    <textarea id='testbox3' placeholder="Start typing...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel egestas lorem, at mollis est. Proin ac mi quis purus auctor egestas. Nulla a nulla id nibh laoreet convallis non imperdiet metus.</textarea>
+						</form>
+					</div>
+
+					<div class="row module add-module">
+						<img src="./img/plus-icon.png">
+					</div>
+				</div>
+
+				<div class="col-xs-4 column right-column">
+
+					<div class="row module add-module">
+						<img src="./img/plus-icon.png">
+					</div>
+
+					<div class="row module"><img src="./img/arabic.png"></div>
+
+					<div class="row module add-module">
+						<img src="./img/plus-icon.png">
+					</div>
+
+					<div class="row module"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel egestas lorem, at mollis est. Proin ac mi quis purus auctor egestas. Nulla a nulla id nibh laoreet convallis non imperdiet metus.</p></div>
+
+					<div class="row module add-module">
+						<img src="./img/plus-icon.png">
+					</div>
+
+					<div class="row module"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel egestas lorem, at mollis est. Proin ac mi quis purus auctor egestas. Nulla a nulla id nibh laoreet convallis non imperdiet metus.</p></div>
+
+					<div class="row module add-module">
+						<img src="./img/plus-icon.png">
+					</div>
+				</div>
+		</div>
+
+		<script>
+			var app = angular.module('test', []);
+			app.controller('testControl', function($scope) {
+			    $scope.firstName= "Bob";
+			    $scope.lastName= "Ridley";
+			});
+		</script>
+
+		<footer></footer>
+		
+		<script src="js/jquery-2.1.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>

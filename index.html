@@ -9,132 +9,24 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+		<link href='fonts/archive.otf' rel='stylesheet' type='text/css'>
 	
 		<script type="text/javascript">
-			var observe;
-			if (window.attachEvent) {
-			    observe = function (element, event, handler) {
-			        element.attachEvent('on'+event, handler);
-			    };
-			}
-			else {
-			    observe = function (element, event, handler) {
-			        element.addEventListener(event, handler, false);
-			    };
-			}
-			function init () {
-			    var text = document.getElementById('testbox');
-			    function resize () {
-			        text.style.height = 'auto';
-			        text.style.height = text.scrollHeight+'px';
-			    }
-			    /* 0-timeout to get the already changed text */
-			    function delayedResize () {
-			        window.setTimeout(resize, 0);
-			    }
-			    observe(text, 'change',  resize);
-			    observe(text, 'cut',     delayedResize);
-			    observe(text, 'paste',   delayedResize);
-			    observe(text, 'drop',    delayedResize);
-			    observe(text, 'keydown', delayedResize);
-
-			    text.focus();
-			    text.select();
-			    resize();
+			document.onload(function changeBackground(color) {
+   				document.body.style.background = red;
 			}
 		</script>
 	</head>
 	<body onload="init();">
 		<header></header>
 		<div class="container">
-				<div class="col-xs-8 column left-column">
-					<div class="row module document-header">
-						<form role="form">
-					    	<!--<label for="email">Header</label>-->
-					    	<input type="textbox" class="document-header-content" id="header" placeholder="Document Title">
-						</form>
-					</div>
-
-					<div class="row module document-description">
-						<form role="form">
-					    	<textarea placeholder="Document description"></textarea>
-						</form>
-					</div>
-
-					<div class="row module add-module">
-						<img src="./img/plus-icon.png">
-					</div>
-
-					<div class="row module">
-						<form role="form">
-					    	<textarea placeholder="Start typing...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel egestas lorem, at mollis est. Proin ac mi quis purus auctor egestas. Nulla a nulla id nibh laoreet convallis non imperdiet metus. Sed eget magna nec nulla accumsan fermentum eget quis massa. Morbi finibus ante in felis imperdiet tempor. Nullam hendrerit arcu ac dui tincidunt, in gravida est laoreet. Praesent molestie nisi eu libero iaculis, eget mattis nibh cursus. Vivamus id erat ut elit sagittis ultricies. Sed dictum nec lectus ac rhoncus. Cras feugiat placerat purus, vitae pellentesque mi egestas id. Nullam vel sapien fermentum, pellentesque libero at, bibendum enim.
-					    	</textarea>
-						</form>
-					</div>
-
-					<div class="row module add-module">
-						<img src="./img/plus-icon.png">
-					</div>
-
-					<div class="row module">
-						<form role="form">
-					    	<textarea placeholder="Start typing...">Nam pretium ut lorem ut efficitur. Praesent placerat velit ante, eget mattis ligula bibendum sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu suscipit nisl, laoreet ornare ipsum. Curabitur fringilla mauris et orci aliquam faucibus. Sed quis efficitur diam. Sed a lorem ut ex vestibulum finibus ut sit amet enim. Fusce nibh dui, ultricies pretium dapibus vitae, eleifend in erat.
-					    	</textarea>
-						</form>
-					</div>
-
-					<div class="row module add-module">
-						<img src="./img/plus-icon.png">
-					</div>
-
-					<div class="row module">
-						<form role="form">
-						    <!--<div class="form-group">
-						    	<label for="email">Email:</label>-->
-						    	<!--<input type="textbox" class="form-control" id="email" placeholder="Enter email">-->
-						    	<textarea id='testbox' placeholder="Start typing...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel egestas lorem, at mollis est. Proin ac mi quis purus auctor egestas. Nulla a nulla id nibh laoreet convallis non imperdiet metus.</textarea>
-						   <!-- </div>-->
-						</form>
-					</div>
-
-					<div class="row module add-module">
-						<img src="./img/plus-icon.png">
-					</div>
-				</div>
-
-				<div class="col-xs-4 column right-column">
-
-					<div class="row module add-module">
-						<img src="./img/plus-icon.png">
-					</div>
-
-					<div class="row module"><img src="./img/arabic.png"></div>
-
-					<div class="row module add-module">
-						<img src="./img/plus-icon.png">
-					</div>
-
-					<div class="row module"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel egestas lorem, at mollis est. Proin ac mi quis purus auctor egestas. Nulla a nulla id nibh laoreet convallis non imperdiet metus.</p></div>
-
-					<div class="row module add-module">
-						<img src="./img/plus-icon.png">
-					</div>
-
-					<div class="row module"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel egestas lorem, at mollis est. Proin ac mi quis purus auctor egestas. Nulla a nulla id nibh laoreet convallis non imperdiet metus.</p></div>
-
-					<div class="row module add-module">
-						<img src="./img/plus-icon.png">
+				<div class="col-xs-12 column">
+					<div class="row module logo">
+						<a href="new_document.html"><div class="plus-box"></div><h1>&nbsp;KNOWT</h1></a>
 					</div>
 				</div>
 		</div>
-
-		<script>
-			var app = angular.module('test', []);
-			app.controller('testControl', function($scope) {
-			    $scope.firstName= "Bob";
-			    $scope.lastName= "Ridley";
-			});
-		</script>
 
 		<footer></footer>
 		
