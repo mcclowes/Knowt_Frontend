@@ -23,9 +23,11 @@ if (homepage.test(window.location.pathname)) {
 			$(document.body).animate({backgroundColor: color}, 2500);
 			$('.plus-ver:first').animate({backgroundColor: color}, 2500);
 			$('.plus-hor:first').animate({backgroundColor: color}, 2500);
+		}
 
 		$(document).ready(changeBackground());
 	})();
+
 	//Animate squares
 	(function(){
 		function createSquare() {
