@@ -177,6 +177,9 @@ header a:hover {
   /* Code for Firefox */
   color: gray;
 }
+input[type="textbox"] {
+  padding-left: 6px;
+}
 form,
 input,
 textarea {

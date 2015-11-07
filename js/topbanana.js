@@ -4,7 +4,9 @@
 // ------------------------------------------------------------------------------ //
 
 var homepage = new RegExp("\/index\.html");
-var documentPage = new RegExp("\/new\_document\.html");
+var newDocumentPage = new RegExp("\/new\_document\.html");
+var cvDocumentPage = new RegExp("\/cv\_document\.html");
+var oldDocumentPage = new RegExp("\/old\_document\.html");
 
 //Home
 if (homepage.test(window.location.pathname)) {
@@ -66,7 +68,7 @@ if (homepage.test(window.location.pathname)) {
 	})();
 }
 
-if (documentPage.test(window.location.pathname)) {
+if (newDocumentPage.test(window.location.pathname) || cvDocumentPage.test(window.location.pathname) || oldDocumentPage.test(window.location.pathname)) {
 	(function(){
 		//Make modules sortable
 		function makeSortable() {
