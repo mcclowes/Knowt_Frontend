@@ -122,13 +122,13 @@ if (documentPage.test(window.location.pathname)) {
 			var textModuleButtons = $('.module-button.text-module');
 			textModuleButtons.click(function(){
 				console.log('Made text ' + this);
-				$(this).parent().replaceWith('<div class="row module add-module"><img src="./img/plus-icon.png"></div><div class="row module"><form role="form"><textarea class="testbox" placeholder="Start typing..."></textarea></form></div><div class="row module add-module"><img src="./img/plus-icon.png"></div>' );
+				$(this).parent().replaceWith('<li class="row module add-module"><img src="./img/plus-icon.png"></li><li class="row module"><form role="form"><textarea class="testbox" placeholder="Start typing..."></textarea></form></div><li class="row module add-module"><img src="./img/plus-icon.png"></li>' );
 			});
 
 			//Image
 			var imageModuleButtons = $('.module-button.image-module');
 			imageModuleButtons.click(function(){
-				$(this).parent().replaceWith('<div class="row module add-module"><img src="./img/plus-icon.png"></div><div class="row module"><div class="module image empty">+ Drag an image to upload</div><div class="row module add-module"><img src="./img/plus-icon.png"></div>' );
+				$(this).parent().replaceWith('<li class="row module add-module"><img src="./img/plus-icon.png"></li><li class="row module"><div class="module image empty">+ Drag an image to upload</div><li class="row module add-module"><img src="./img/plus-icon.png"></li>' );
 				console.log('Made image ' + this);
 
 				var dropImages = $('.module.image.empty');

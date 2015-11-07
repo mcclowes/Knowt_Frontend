@@ -4,8 +4,14 @@ body {
 img {
   width: 100%;
 }
+.left-column {
+  float: left;
+  width: 60%;
+}
 .right-column {
+  float: left;
   padding-left: 10px;
+  width: 30%;
 }
 .logo {
   padding-top: 20%;
@@ -141,6 +147,7 @@ header a:hover {
 }
 .module {
   margin: 4px;
+  list-style: none;
 }
 .module p,
 .module form,
