@@ -60,100 +60,109 @@ if (homepage.test(window.location.pathname)) {
 }
 
 if (documentPage.test(window.location.pathname)) {
-	//Make modules sortable
-	$(function() {
-		var modules = $('.module');
-		console.log(modules);
-		for (var i = 0; i < modules.length; i++) {
-			console.log($(modules[i]));
-			$(modules[i]).sortable();
-			//$(modules[i]).draggable();
-		}
-	});
-
-
-	//Add text editing functionality
 	(function(){
-		var textBoxes = $('.testbox');
-
-		for (var i = 0; i < textBoxes.length; i++) {
-
-			var observe;
-
-			if (window.attachEvent) {
-			    observe = function (element, event, handler) {
-			        element.attachEvent('on'+event, handler);
-			    };
-			} else {
-			    observe = function (element, event, handler) {
-			        element.addEventListener(event, handler, false);
-			    };
+		//Make modules sortable
+		function makeSortable() {
+			var modules = $('ul');
+			console.log(modules);
+			for (var i = 0; i < modules.length; i++) {
+				console.log($(modules[i]));
+				$(modules[i]).sortable();
+				//$(modules[i]).draggable();
 			}
+		};
 
-		    var text = textBoxes[i];
 
-		    function resize () {
-		        text.style.height = 'auto';
-		        text.style.height = text.scrollHeight+'px';
-		    }
-		    /* 0-timeout to get the already changed text */
-		    function delayedResize () {
-		        window.setTimeout(resize, 0);
-		    }
-		    observe(text, 'change', resize);
-		    observe(text, 'cut', delayedResize);
-		    observe(text, 'paste', delayedResize);
-		    observe(text, 'drop', delayedResize);
-		    observe(text, 'keydown', delayedResize);
+		//Add text editing functionality
+		function enableTextBoxes(){
+			var textBoxes = $('.testbox');
 
-		    text.focus();
-		    text.select();
-		    resize();
-		}
-	})();
+			for (var i = 0; i < textBoxes.length; i++) {
 
-	//Creating new modules
-	(function(){
-		var addModuleButton = $('.add-module');
-		addModuleButton.click(function(){
-			$(this).replaceWith('<div class="module-grid"><div class="col-xs-2 module-button text-module">Text</div><div class="col-xs-2 module-button image-module">Image</div></div>' );
+				var observe;
 
-			//Text module
-			var textModuleButtons = $('.module-button.text-module');
-			textModuleButtons.click(function(){
-				console.log('Made text ' + this);
-				$(this).parent().replaceWith('<li class="row module add-module"><img src="./img/plus-icon.png"></li><li class="row module"><form role="form"><textarea class="testbox" placeholder="Start typing..."></textarea></form></div><li class="row module add-module"><img src="./img/plus-icon.png"></li>' );
-			});
-
-			//Image
-			var imageModuleButtons = $('.module-button.image-module');
-			imageModuleButtons.click(function(){
-				$(this).parent().replaceWith('<li class="row module add-module"><img src="./img/plus-icon.png"></li><li class="row module"><div class="module image empty">+ Drag an image to upload</div><li class="row module add-module"><img src="./img/plus-icon.png"></li>' );
-				console.log('Made image ' + this);
-
-				var dropImages = $('.module.image.empty');
-				console.log(dropImages);
-				for (var i = 0; i < dropImages.length; i++) {
-					console.log(dropImages[i]);
-					dropImages[i].addEventListener("dragover", function(e){e.preventDefault();}, true);
-					dropImages[i].addEventListener("drop", function(e){
-						e.preventDefault();
-						if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-							console.log('got here');
-				            var imageReader = new FileReader();
-				            imageReader.onload = function(){
-					            imageReader.readAsDataURL(e.dataTransfer.files[0]);
-					            console.log(reader);
-					            console.log(reader.result);
-					            $(this).append('<img src="' + reader.result + '">');
-					            $(this).removeClass('empty');
-					        }
-				        }
-					}, true);
+				if (window.attachEvent) {
+				    observe = function (element, event, handler) {
+				        element.attachEvent('on'+event, handler);
+				    };
+				} else {
+				    observe = function (element, event, handler) {
+				        element.addEventListener(event, handler, false);
+				    };
 				}
+
+			    var text = textBoxes[i];
+
+			    function resize () {
+			        text.style.height = 'auto';
+			        text.style.height = text.scrollHeight+'px';
+			    }
+			    /* 0-timeout to get the already changed text */
+			    function delayedResize () {
+			        window.setTimeout(resize, 0);
+			    }
+			    observe(text, 'change', resize);
+			    observe(text, 'cut', delayedResize);
+			    observe(text, 'paste', delayedResize);
+			    observe(text, 'drop', delayedResize);
+			    observe(text, 'keydown', delayedResize);
+
+			    text.focus();
+			    text.select();
+			    resize();
+			}
+		};
+
+		enableTextBoxes();
+
+		//Creating new modules
+		(function enableAddModule(){
+			var addModuleButton = $('.add-module');
+			addModuleButton.click(function(){
+				$(this).replaceWith('<div class="module-grid"><div class="col-xs-2 module-button text-module">Text</div><div class="col-xs-2 module-button image-module">Image</div></div>' );
+
+				//Text module
+				var textModuleButtons = $('.module-button.text-module');
+				textModuleButtons.click(function(){
+					console.log('Made text ' + this);
+					$(this).parent().replaceWith('<li class="row module add-module"><img src="./img/plus-icon.png"></li><li class="row module"><form role="form"><textarea class="testbox" placeholder="Start typing..."></textarea></form></div><li class="row module add-module"><img src="./img/plus-icon.png"></li>' );
+					makeSortable();
+					enableAddModule();
+				});
+
+				//Image
+				var imageModuleButtons = $('.module-button.image-module');
+				imageModuleButtons.click(function(){
+					$(this).parent().replaceWith('<li class="row module add-module"><img src="./img/plus-icon.png"></li><li class="row module"><div class="module image empty">+ Drag an image to upload</div><li class="row module add-module"><img src="./img/plus-icon.png"></li>' );
+					console.log('Made image ' + this);
+
+					var dropImages = $('.module.image.empty');
+					console.log(dropImages);
+					for (var i = 0; i < dropImages.length; i++) {
+						console.log(dropImages[i]);
+						dropImages[i].addEventListener("dragover", function(e){e.preventDefault();}, true);
+						dropImages[i].addEventListener("drop", function(e){
+							e.preventDefault();
+							if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+								console.log('got here');
+					            var imageReader = new FileReader();
+					            imageReader.onload = function(){
+						            imageReader.readAsDataURL(e.dataTransfer.files[0]);
+						            console.log(reader);
+						            console.log(reader.result);
+						            $(this).append('<img src="' + reader.result + '">');
+						            $(this).removeClass('empty');
+						        }
+					        }
+						}, true);
+					}
+					makeSortable();
+					enableAddModule();
+				});
+				//Table
+
 			});
-			//Table
-		});
+		})();
 	})();
 }
 
