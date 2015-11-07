@@ -89,6 +89,9 @@ header {
 	}
 }
 
+.container {
+	padding-top: 20px;
+}
 .plus-box {
 	display: inline-block;
 	border-radius: 10px;
@@ -125,6 +128,14 @@ header {
 	padding: 5px 5px 0 5px;
 }
 
+.left-column {
+	margin-left: -5px;
+}
+
+.right-column {
+	margin-left: 5px;
+}
+
 .add-module {
 	opacity: 0;
 	height: 2px;
@@ -150,6 +161,10 @@ header {
 .add-module:hover {
 	opacity: 1;
 	height: 30px;
+}
+
+.module-grid {
+	height: 120px;
 }
 
 .module {
@@ -214,10 +229,13 @@ input:focus {
 }
 
 .module-button {
-	width: 40px;
-	height: 40px;
-	background: #dedede;
+	height: 100px;
+	background-color: #dedede;
 	padding: 10px;
+	border-radius: 10px;
+	margin: 10px;
+	color: white;
+	;font-weight: bolder;
 }
 
 .image.empty {

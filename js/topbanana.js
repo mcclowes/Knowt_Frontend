@@ -6,16 +6,23 @@
 var homepage = new RegExp("\/index\.html");
 var documentPage = new RegExp("\/new\_document\.html");
 
+//Home
 if (homepage.test(window.location.pathname)) {
+	(function(){
+		var container = $('.column:first');
+		container.css("opacity", 0);
+		$(container).animate({opacity:1}, 2000);
+	})();
+
 	//Randomise background colour
 	(function(){
 		function changeBackground() {
-			var bgColorArray = ['#0b1b2d','#0d2e11','gray'];
+
+			var bgColorArray = ['#0b1b2d','#0d2e11','#b31217', 'gray'];
 			var color = bgColorArray[Math.floor((Math.random() * bgColorArray.length))];
-			document.body.style.backgroundColor = color;
-			$('.plus-ver:first')[0].style.backgroundColor = color;
-			$('.plus-hor:first')[0].style.backgroundColor = color;
-		}
+			$(document.body).animate({backgroundColor: color}, 2500);
+			$('.plus-ver:first').animate({backgroundColor: color}, 2500);
+			$('.plus-hor:first').animate({backgroundColor: color}, 2500);
 
 		$(document).ready(changeBackground());
 	})();
@@ -51,20 +58,14 @@ if (homepage.test(window.location.pathname)) {
 }
 
 if (documentPage.test(window.location.pathname)) {
-	/*(function(){
-		var modules = $('.module');
-
-		for (var i = 0; i < modules.length; i++) {
-			$(modules)[i].draggable();
-		}
-	})();*/
-
+	//Make modules sortable
 	$(function() {
 		var modules = $('.module');
 		console.log(modules);
 		for (var i = 0; i < modules.length; i++) {
 			console.log($(modules[i]));
-			$(modules)[i].sortable();
+			$(modules[i]).sortable();
+			//$(modules[i]).draggable();
 		}
 	});
 
@@ -109,11 +110,11 @@ if (documentPage.test(window.location.pathname)) {
 		}
 	})();
 
+	//Creating new modules
 	(function(){
 		var addModuleButton = $('.add-module');
 		addModuleButton.click(function(){
-			console.log('clicked ' + this);
-			$(this).replaceWith('<div class="module-grid"><div class="col-xs-3 module-button text-module">Text</div><div class="col-xs-3 module-button image-module">Image</div><div class="col-xs-3 module-button">Chart</div><div class="col-xs-3 module-button">Chart</div></div>' );
+			$(this).replaceWith('<div class="module-grid"><div class="col-xs-2 module-button text-module">Text</div><div class="col-xs-2 module-button image-module">Image</div></div>' );
 
 			//Text module
 			var textModuleButtons = $('.module-button.text-module');
