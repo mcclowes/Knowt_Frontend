@@ -33,6 +33,7 @@ if (homepage.test(window.location.pathname)) {
 		function createSquare() {
 			var container = $('.container:first');
 			var plusBox = $('.plus-box:first');
+			var plusBoxes = $('.plus-box');
 			var newBox = $('<div class="plus-box">');
 
 			var spawnSquareIndex = Math.floor(Math.random() * $('.plus-box', container[0]).length);
@@ -40,22 +41,28 @@ if (homepage.test(window.location.pathname)) {
 
 			var directionVal = Math.random();
 			$(newBox).css({top: $(spawnSquare).offset().top, left: $(spawnSquare).offset().left, opacity: 1, position: 'absolute'});
-			if(directionVal < 0.25){
+			/*if(directionVal < 0.25 && !(document.elementFromPoint($(spawnSquare).offset().top, $(spawnSquare).offset().left))){
 				$(newBox).animate({top: "+=00", left: "+=100", opacity: 0.5 }, 500, function(){});
-			}
-			else if(directionVal < 0.5){
+			} */
+			console.log('Top: ' + plusBox.offset().top + ', Left: '+ plusBox.offset().left);
+
+			if((directionVal < 0.34) && ((plusBox.offset().top != $(newBox).offset().top + 100) && (plusBox.offset().left != $(newBox).offset().left))){ //Up
+				console.log('Did: Top: ' + (plusBox.offset().top+100) + ', Left: '+ plusBox.offset().left);
 				$(newBox).animate({top: "+=100", left: "+=00", opacity: 0.5 }, 500, function(){});
-			}
-			else if(directionVal < 0.75){
+			} else if((directionVal < 0.66) && ((plusBox.offset().top != $(newBox).offset().top) && (plusBox.offset().left != $(newBox).offset().left - 100))){ //Left
+				console.log('Did: Top: ' + plusBox.offset().top + ', Left: '+ (plusBox.offset().left-100));
 				$(newBox).animate({top: "+=00", left: "-=100", opacity: 0.5 }, 500, function(){});
-			}
-			else{
+			} else if((plusBox.offset().top != $(newBox).offset().top - 100) && (plusBox.offset().left != $(newBox).offset().left)){ //Down
+				console.log('Did: Top: ' + (plusBox.offset().top-100) + ', Left: '+ plusBox.offset().left);
 				$(newBox).animate({top: "-=100", left: "+=00", opacity: 0.5 }, 500, function(){});
+			} else { //No free square
+				console.log('Else')
+				createSquare();
 			}
 			container.append(newBox);
 		}
 
-		setInterval( createSquare , 1000);
+		setInterval( createSquare , 3000);
 	})();
 }
 
@@ -71,6 +78,8 @@ if (documentPage.test(window.location.pathname)) {
 				//$(modules[i]).draggable();
 			}
 		};
+
+		makeSortable();
 
 
 		//Add text editing functionality
