@@ -17,7 +17,6 @@ img {
 	text-align: center;
 
 	a {
-		text-decoration: none;
 		color: #dedede;
 		transition: 0.5s ease;
 	}
@@ -31,7 +30,62 @@ img {
 	h1 {
 		display: inline-block;
 		font-size: 8.6em;
+		letter-spacing: 1.5px;
+		font-weight: lighter;
+	}
+}
+
+header {
+	background-color: #0b1b2d;
+	color: #dedede;
+	padding-bottom: 1px;
+	display: inline-block;
+	margin: 0;
+	padding: 10px;
+
+	h2 {
+		margin: 10px;
+		padding-left: 10px;
+		display: inline-block;
+		font-family: 'Archive';
+		color: #dedede;
+		font-size: 2.75em;
 		letter-spacing: 2px;
+	}
+
+	h2::before {
+		content: "";
+		display: inline-block;
+		background-color: #dedede;
+		width: 26px;
+		height: 26px;
+		border-radius: 3px;
+		margin-right: 7px;
+
+	}
+
+	ul {
+		float: right;
+		padding: 10px;
+		display: inline-block;
+	}
+
+	li {
+		display: inline-block;
+		text-decoration: none;
+		font-size: 1.5em;
+		padding: 5px 25px;
+	}
+
+	a {
+		color: #dedede;
+	}
+
+	a:hover {
+		opacity: 0.5;
+		color: #dedede;
+		transition: 0.5s ease;
+		text-decoration: none;
 	}
 }
 
@@ -157,4 +211,22 @@ input:focus {
 .document-description {
 	font-size: 1.5em;
 	font-weight: medium;
+}
+
+.module-button {
+	width: 40px;
+	height: 40px;
+	background: #dedede;
+	padding: 10px;
+}
+
+.image.empty {
+	height: 40px;
+	border-radius: 10px;
+	border-style: dashed;
+	padding: 5px;
+	font-weight: bolder;
+	border-color: #dedede;
+	color: #dedede;
+	text-align: center;
 }

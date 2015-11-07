@@ -19,22 +19,39 @@ if (homepage.test(window.location.pathname)) {
 
 		$(document).ready(changeBackground());
 	})();
-/*
 	//Animate squares
 	(function(){
 		function createSquares() {
 			var container = $('.container:first');
 			var plusBox = $('.plus-box:first');
 			var newBox = $('<div class="plus-box">');
-			$(newBox).css({top: $(plusBox)[0].style.top + 100 , left: $(plusBox)[0].style.left, opacity: 0.5, position: 'absolute'});
+			$(newBox).css({top: $(plusBox[0]).offset().top + 20 , left: $(plusBox[0]).offset().left + 20, opacity: 0.5, position: 'absolute'});
 			container.append(newBox);
 		}
 
 		setInterval( createSquares(), 3000);
-	})();*/
+	})();
 }
 
 if (documentPage.test(window.location.pathname)) {
+	/*(function(){
+		var modules = $('.module');
+
+		for (var i = 0; i < modules.length; i++) {
+			$(modules)[i].draggable();
+		}
+	})();*/
+
+	$(function() {
+		var modules = $('.module');
+		console.log(modules);
+		for (var i = 0; i < modules.length; i++) {
+			console.log($(modules[i]));
+			$(modules)[i].sortable();
+		}
+	});
+
+
 	//Add text editing functionality
 	(function(){
 		var textBoxes = $('.testbox');
@@ -76,15 +93,48 @@ if (documentPage.test(window.location.pathname)) {
 	})();
 
 	(function(){
-		var moduleButtons = $('.add-module');
-		moduleButtons.click(function(){
+		var addModuleButton = $('.add-module');
+		addModuleButton.click(function(){
 			console.log('clicked ' + this);
-			$(this).html('<div class="col-xs-4 module">Image</div>' );
-			$(this).append('<div class="col-xs-4 module">Text</div>' );
-			$(this).append('<div class="col-xs-4 module">Chart</div>' );
+			$(this).replaceWith('<div class="module-grid"><div class="col-xs-3 module-button text-module">Text</div><div class="col-xs-3 module-button image-module">Image</div><div class="col-xs-3 module-button">Chart</div><div class="col-xs-3 module-button">Chart</div></div>' );
+			
+			//Text module
+			var textModuleButtons = $('.module-button.text-module');
+			textModuleButtons.click(function(){
+				console.log('Made text ' + this);
+				$(this).parent().replaceWith('<div class="row module add-module"><img src="./img/plus-icon.png"></div><div class="row module"><form role="form"><textarea class="testbox" placeholder="Start typing..."></textarea></form></div><div class="row module add-module"><img src="./img/plus-icon.png"></div>' );
+			});
+
+			//Image
+			var imageModuleButtons = $('.module-button.image-module');
+			imageModuleButtons.click(function(){
+				$(this).parent().replaceWith('<div class="row module add-module"><img src="./img/plus-icon.png"></div><div class="row module"><div class="module image empty">+ Drag an image to upload</div><div class="row module add-module"><img src="./img/plus-icon.png"></div>' );
+				console.log('Made image ' + this);
+
+				var dropImages = $('.module.image.empty');
+				console.log(dropImages);
+				for (var i = 0; i < dropImages.length; i++) {
+					console.log(dropImages[i]);
+					dropImages[i].addEventListener("dragover", function(e){e.preventDefault();}, true);
+					dropImages[i].addEventListener("drop", function(e){
+						e.preventDefault(); 
+						if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+							console.log('got here');
+				            var imageReader = new FileReader();
+				            imageReader.onload = function(){
+					            imageReader.readAsDataURL(e.dataTransfer.files[0]);
+					            console.log(reader);
+					            console.log(reader.result);
+					            $(this).append('<img src="' + reader.result + '">');
+					            $(this).removeClass('empty');
+					        }
+				        }
+					}, true);
+				}
+			});
+			//Table
 		});
 	})();
-
 }
 
 /*
