@@ -32,19 +32,6 @@ if (homepage.test(window.location.pathname)) {
 		changeBackground();
 
 	})();
-
-	//Animate squares
-	(function(){
-		function createSquares() {
-			var container = $('.container:first');
-			var plusBox = $('.plus-box:first');
-			var newBox = $('<div class="plus-box">');
-			$(newBox).css({top: $(plusBox[0]).offset().top + 20 , left: $(plusBox[0]).offset().left + 20, opacity: 0.5, position: 'absolute'});
-			container.append(newBox);
-		}
-
-		setInterval( createSquares(), 3000);
-	})();
 }
 
 if (documentPage.test(window.location.pathname)) {
