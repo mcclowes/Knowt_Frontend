@@ -87,14 +87,12 @@
 						$textarea.css({'height': curratedHeight + 'px','overflow':overflow});
 						
 						// Fire the custom event resize
-						$textarea.trigger('resize');
-						
+						$textarea.trigger('resize');	
 					}
 				}
 				
 				// This function will update the height of the textarea if necessary 
 				function update(forced) {
-					
 					// Get curated content from the textarea.
 					var textareaContent = $textarea.val().replace(/&/g,'&amp;').replace(/ {2}/g, '&nbsp;').replace(/<|>/g, '&gt;').replace(/\n/g, '<br />');
 					

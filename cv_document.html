@@ -24,9 +24,9 @@
 
 			<ul>
 				<li class="new"><a href="new_document.html">+ New</a></li>
-				<li class="open"><a href="new_document.html">Open</a></li>
-				<li class="import"><a href="new_document.html">&#11014 Import</a></li>
-				<li class="export"><a href="new_document.html">&#11015 Export</a></li>
+				<li class="open"><a href="cv_document.html">Open</a></li>
+				<li class="import"><a href="old_document.html">&#11014 Import</a></li>
+				<li class="export"><a href="onboarding_document.html">&#11015 Export</a></li>
 			</ul>
 
 		</header>
@@ -36,30 +36,23 @@
 						<li class="module document-header">
 							<form role="form">
 						    	<!--<label for="email">Header</label>-->
-						    	<input type="textbox" class="document-header-content" id="header" placeholder="Document Title" value="Sarah Batholomew">
+						    	<input type="textbox" class="document-header-content" id="header" placeholder="Document Title" value="Sarah Bartholomew">
 							</form>
 						</li>
 
 						<li class="module document-description">
 							<form role="form">
-						    	<textarea class='testbox' placeholder="Document description">BSc Marine Biology, Durham University</textarea>
+						    	<textarea class='testbox' placeholder="Document description">BSc Marine Biology, Edinburgh University</textarea>
 							</form>
 						</li>
-					<ul>
+					<ul class="sortable-list">
 						<li class="module add-module">
 							<img src="./img/plus-icon.png">
 						</li>
 
-						<!--<li class="module">
-							<form role="form">
-						    	<textarea placeholder="Start typing...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel egestas lorem, at mollis est. Proin ac mi quis purus auctor egestas. Nulla a nulla id nibh laoreet convallis non imperdiet metus. Sed eget magna nec nulla accumsan fermentum eget quis massa. Morbi finibus ante in felis imperdiet tempor. Nullam hendrerit arcu ac dui tincidunt, in gravida est laoreet. Praesent molestie nisi eu libero iaculis, eget mattis nibh cursus. Vivamus id erat ut elit sagittis ultricies. Sed dictum nec lectus ac rhoncus. Cras feugiat placerat purus, vitae pellentesque mi egestas id. Nullam vel sapien fermentum, pellentesque libero at, bibendum enim.
-						    	</textarea>
-							</form>
-						</div>-->
-
 						<li class="module">
 							<form role="form">
-							    <textarea class='testbox' placeholder="Start typing...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel egestas lorem, at mollis est. Proin ac mi quis purus auctor egestas. Nulla a nulla id nibh laoreet convallis non imperdiet metus.</textarea>
+							    <textarea class='testbox' placeholder="Start typing...">I am an ambitious and personable individual with experience in customer service and administration. Soon to graduate, I am seeking a role to build on my biological studies.</textarea>
 							</form>
 						</li>
 
@@ -69,18 +62,27 @@
 
 						<li class="module">
 							<form role="form">
-							    <textarea class='testbox' placeholder="Start typing...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel egestas lorem, at mollis est. Proin ac mi quis purus auctor egestas. Nulla a nulla id nibh laoreet convallis non imperdiet metus.</textarea>
-							</form>
-						</li>
-
-						<li class="module add-module">
-							<img src="./img/plus-icon.png">
-						</li>
-
-						<li class="module">
-							<form role="form">
-						    	<!--<label for="email">Header</label>-->
 						    	<input type="textbox" class="header-module" id="header" placeholder="Header" value="Education">
+							</form>
+						</li>
+
+						<li class="module add-module">
+							<img src="./img/plus-icon.png">
+						</li>
+
+						<li class="module">
+							<form role="form">
+							    <textarea class='testbox' placeholder="Start typing...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel egestas lorem, at mollis est. Proin ac mi quis purus auctor egestas. Nulla a nulla id nibh laoreet convallis non imperdiet metus.</textarea>
+							</form>
+						</li>
+
+						<li class="module add-module">
+							<img src="./img/plus-icon.png">
+						</li>
+
+						<li class="module">
+							<form role="form">
+						    	<input type="textbox" class="header-module" id="header" placeholder="Header" value="Work Experience">
 							</form>
 						</li>
 
@@ -101,14 +103,14 @@
 				</div>
 
 				<div class="column right-column">
-					<ul>
+					<ul class="sortable-list">
 						<li class="module add-module">
 							<img src="./img/plus-icon.png">
 						</li>
 
 						<li class="module">
 							<form role="form">
-							    <textarea class='testbox' placeholder="Start typing...">477 Retreat Street,&#10;Edinburgh,&#10;ED11 7HD</textarea>
+							    <textarea class='testbox' placeholder="Start typing...">Email: sarah.b@hotmail.com&#10;Tel: 078320 063 833&#10;&#10;477 Retreat Street,&#10;Edinburgh,&#10;ED11 7HD</textarea>
 							</form>
 						</li>
 
@@ -128,14 +130,6 @@
 					</ul>
 				</div>
 		</div>
-
-		<script>
-			var app = angular.module('test', []);
-			app.controller('testControl', function($scope) {
-			    $scope.firstName= "Bob";
-			    $scope.lastName= "Ridley";
-			});
-		</script>
 
 		<footer></footer>
 		
