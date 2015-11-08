@@ -57,7 +57,7 @@ html:-moz-full-screen-ancestor {
  * VIEW FRAGMENTS
  *********************************************/
 #logo {
-  font-family: 'Archive' !important;
+  font-family: 'archive' !important;
   display: inline-block;
   font-size: 4em;
   letter-spacing: 1.5px;
