@@ -48,12 +48,12 @@
 					return false;
 				}
 					
-			var $textarea	= jQuery(this),
-				$twin		= jQuery('<div />').css({'position': 'absolute','display':'none','word-wrap':'break-word'}),
-				lineHeight	= parseInt($textarea.css('line-height'),10) || parseInt($textarea.css('font-size'),'10'),
-				minheight	= parseInt($textarea.css('height'),10) || lineHeight*3,
-				maxheight	= parseInt($textarea.css('max-height'),10) || Number.MAX_VALUE,
-				goalheight	= 0;
+				var $textarea	= jQuery(this),
+					$twin		= jQuery('<div />').css({'position': 'absolute','display':'none','word-wrap':'break-word'}),
+					lineHeight	= parseInt($textarea.css('line-height'),10) || parseInt($textarea.css('font-size'),'10'),
+					minheight	= parseInt($textarea.css('height'),10) || lineHeight*3,
+					maxheight	= parseInt($textarea.css('max-height'),10) || Number.MAX_VALUE,
+					goalheight	= 0;
 				
 				// Opera returns max-height of -1 if not set
 				if (maxheight < 0) { maxheight = Number.MAX_VALUE; }
@@ -70,6 +70,7 @@
 				
 				// Updates the width of the twin. (solution for textareas with widths in percent)
 				function setTwinWidth(){
+					console.log('set twin...');
 					curatedWidth = Math.floor(parseInt($textarea.width(),10));
 					if($twin.width() !== curatedWidth){
 						$twin.css({'width': curatedWidth + 'px'});
@@ -81,18 +82,28 @@
 				
 				// Sets a given height and overflow state on the textarea
 				function setHeightAndOverflow(height, overflow){
+					console.log('set height...');
 				
 					var curratedHeight = Math.floor(parseInt(height,10));
 					if($textarea.height() !== curratedHeight){
 						$textarea.css({'height': curratedHeight + 'px','overflow':overflow});
 						
+						if($twin.height() < maxheight){
+							if($twin.height() > minheight) {
+								$textarea.height($twin.height());
+							} else {
+								$textarea.height(minheight);
+							}
+						}
+						
 						// Fire the custom event resize
-						$textarea.trigger('resize');	
+						$textarea.trigger('resize');
 					}
 				}
 				
 				// This function will update the height of the textarea if necessary 
 				function update(forced) {
+					console.log('updated');
 					// Get curated content from the textarea.
 					var textareaContent = $textarea.val().replace(/&/g,'&amp;').replace(/ {2}/g, '&nbsp;').replace(/<|>/g, '&gt;').replace(/\n/g, '<br />');
 					
@@ -115,11 +126,8 @@
 							} else {
 								setHeightAndOverflow(goalheight,'hidden');
 							}
-							
 						}
-						
 					}
-					
 				}
 				
 				// Hide scrollbars
@@ -151,9 +159,7 @@
 				
 				// Run update once when elastic is initialized
 				update();
-				
 			});
-			
         } 
     }); 
 })(jQuery);
