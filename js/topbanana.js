@@ -22,7 +22,7 @@ if (homepage.test(window.location.pathname)) {
 	(function(){
 		function changeBackground() {
 
-			var bgColorArray = ['#0b1b2d','#0d2e11','#b31217', 'gray'];
+			var bgColorArray = ['#0C8A62', '#0b1b2d','#0d2e11','#b31217', '#8C3A8A'];
 			var color = bgColorArray[Math.floor((Math.random() * bgColorArray.length))];
 			$(document.body).animate({backgroundColor: color}, 2500);
 			$('.plus-ver:first').animate({backgroundColor: color}, 2500);

@@ -7,7 +7,7 @@
 }*/
 
 body {
-	background-color: #0b1b2d;
+	background-color: #0C8A62;
 }
 
 img {
@@ -26,10 +26,20 @@ img {
 }
 
 .logo {
-	padding-top: 20%;
+	padding-top: 25%;
 	font-family: 'archive';
 	color: #dedede;
 	text-align: center;
+
+	//margin: 10px 0 0 30px;
+	.main-logo {
+		background-image: url('../img/knowt2.png');
+		background-size: 100% auto;
+		background-repeat: no-repeat;
+		height: 110px;
+		width: 540px;
+		display: inline-block;
+	}
 
 	a {
 		color: #dedede;
@@ -41,14 +51,6 @@ img {
 		color: #dedede;
 		text-decoration: none;
 	}
-
-	h1 {
-		display: inline-block;
-		font-size: 8.6em;
-		letter-spacing: 1.5px;
-		font-weight: lighter;
-		padding-left: 7px;
-	}
 }
 
 .plus-box {
@@ -57,35 +59,25 @@ img {
 	background-color: #dedede;
 	height: 80px;
 	width: 80px;
+	margin-right: -83px;
 }
 
 header {
-	background-color: #0b1b2d;
-	color: #dedede;
+	background-color: #0C8A62;
+	//color: #dedede;
 	padding-bottom: 1px;
 	display: inline-block;
 	margin: 0;
 	padding: 10px;
 
-	h2 {
-		margin: 10px;
-		padding-left: 10px;
+	.header-logo {
+		margin: 10px 0 0 30px;
+		background-image: url('../img/knowt2.png');
+		background-size: 100% auto;
+		background-repeat: no-repeat;
+		height: 45px;
+		width: 180px;
 		display: inline-block;
-		font-family: 'Archive';
-		color: #dedede;
-		font-size: 2.75em;
-		letter-spacing: 2px;
-	}
-
-	h2::before {
-		content: "";
-		display: inline-block;
-		background-color: #dedede;
-		width: 26px;
-		height: 26px;
-		border-radius: 3px;
-		margin-right: 7px;
-
 	}
 
 	ul {
@@ -102,7 +94,8 @@ header {
 	}
 
 	a {
-		color: #dedede;
+		//color: #dedede;
+		color: white;
 	}
 
 	a:hover {
@@ -208,6 +201,10 @@ header {
 	::-moz-selection,
 	::selection { /* Code for Firefox */
 	    color: gray;
+	}
+
+	a {
+		font-weight: bold;
 	}
 }
 

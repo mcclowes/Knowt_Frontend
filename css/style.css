@@ -6,7 +6,7 @@
 
 }*/
 body {
-  background-color: #0b1b2d;
+  background-color: #0C8A62;
 }
 img {
   width: 100%;
@@ -21,10 +21,18 @@ img {
   width: 30%;
 }
 .logo {
-  padding-top: 20%;
+  padding-top: 25%;
   font-family: 'archive';
   color: #dedede;
   text-align: center;
+}
+.logo .main-logo {
+  background-image: url('../img/knowt2.png');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  height: 110px;
+  width: 540px;
+  display: inline-block;
 }
 .logo a {
   color: #dedede;
@@ -35,45 +43,29 @@ img {
   color: #dedede;
   text-decoration: none;
 }
-.logo h1 {
-  display: inline-block;
-  font-size: 8.6em;
-  letter-spacing: 1.5px;
-  font-weight: lighter;
-  padding-left: 7px;
-}
 .plus-box {
   display: inline-block;
   border-radius: 10px;
   background-color: #dedede;
   height: 80px;
   width: 80px;
+  margin-right: -83px;
 }
 header {
-  background-color: #0b1b2d;
-  color: #dedede;
+  background-color: #0C8A62;
   padding-bottom: 1px;
   display: inline-block;
   margin: 0;
   padding: 10px;
 }
-header h2 {
-  margin: 10px;
-  padding-left: 10px;
+header .header-logo {
+  margin: 10px 0 0 30px;
+  background-image: url('../img/knowt2.png');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  height: 45px;
+  width: 180px;
   display: inline-block;
-  font-family: 'Archive';
-  color: #dedede;
-  font-size: 2.75em;
-  letter-spacing: 2px;
-}
-header h2::before {
-  content: "";
-  display: inline-block;
-  background-color: #dedede;
-  width: 26px;
-  height: 26px;
-  border-radius: 3px;
-  margin-right: 7px;
 }
 header ul {
   float: right;
@@ -87,7 +79,7 @@ header li {
   padding: 5px 25px;
 }
 header a {
-  color: #dedede;
+  color: white;
 }
 header a:hover {
   opacity: 0.5;
@@ -176,6 +168,9 @@ header a:hover {
 .module ::selection {
   /* Code for Firefox */
   color: gray;
+}
+.module a {
+  font-weight: bold;
 }
 input[type="textbox"] {
   padding-left: 6px;

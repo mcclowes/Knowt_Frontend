@@ -1051,6 +1051,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/knowt.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 48227,
+		"inputAbbreviatedPath": "\/img\/knowt.png",
+		"outputAbbreviatedPath": "\/img\/knowt.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/knowt2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 45077,
+		"inputAbbreviatedPath": "\/img\/knowt2.png",
+		"outputAbbreviatedPath": "\/img\/knowt2.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/plus-icon.png": {
 		"fileType": 32768,
 		"ignore": 0,
