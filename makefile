@@ -1,4 +1,4 @@
-S3_BUCKET=knowt.io
+S3_BUCKET=www.knowt.io
 
 all: upload
 
