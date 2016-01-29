@@ -1,15 +1,17 @@
-S3_BUCKET=www.knowt.io
+SHELL=/bin/bash
+S3_BUCKET= www.knowt.io
 
-all: upload
+JS = $(shell find js -name "*.js" )
+HTML = $(shell find js -name "*.html" )
+HTML_DEPLOY = $(HTML:html/%=deploy/%)
 
-.PHONY: upload
-upload: dep/s3cmd/s3cmd
-	dep/s3cmd/s3cmd sync --delete-removed --acl-public --exclude '.git/*' ./ s3://$(S3_BUCKET)/
+deploy/%: html/%
+	cp $< $@
 
-dep/s3cmd/s3cmd: dep
-	cd dep ; \
-	git clone git@github.com:s3tools/s3cmd.git
-	dep/s3cmd/s3cmd --configure
+	
 
-dep:
-	mkdir dep 
+watchHTML:
+	while true; do \
+		make HTML; \
+		inotifywait -qre close_write .; \
+	done
