@@ -10,12 +10,9 @@
 	"html-minifier": "latest"
     },
     "scripts": {
-	"echo": "echo",
-	"env": "env",
 	"watch:html": "onchange 'html/**/*.html' -- cp -r html/* deploy/",
 	"watch:js": "watchify js/main.js -o 'uglifyjs -cm > deploy/main.min.js' --debug --verbose",
 	"watch": "npm run watch:html &  npm run watch:js",
-	"build": "npm run minify",
 	"lint": "jshint **/*.js",
 	"test": "mocha test/"
     }

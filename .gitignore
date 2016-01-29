@@ -1,4 +1,5 @@
 deploy/*
 node_modules/*
+s3cmd/*
 
 *.min.*
